@@ -1,0 +1,155 @@
+﻿{
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "version": "1.0.0",
+        "title": "所有接口仅供 证大智慧社区一体化平台项目组 - app 开发团队测试使用"
+    },
+    "host": "localhost:8080",
+    "basePath": "/zendai/Api/V1",
+    "tags": [
+        {
+            "name": "communities",
+            "description": "社区相关操作接口"
+        },
+        {
+            "name": "buildings",
+            "description": "楼宇相关操作接口"
+        },
+        {
+            "name": "test",
+            "description": "测试接口"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+    
+    
+    	"/communities/{id}": {
+            "get": {
+                "tags": [
+                    "communities"
+                ],
+                "summary": "2.1 获取社区详细信息",
+                "description": "根据给定 id，获取指定社区详细信息。",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "社区 id，必填",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 1
+                    }
+                ]
+            }
+        },
+        "/communities/create": {
+            "post": {
+                "tags": [
+                    "communities"
+                ],
+                "summary": "2.2 添加社区",
+                "description": "添加一个新社区，其中社区编码不能和现有编码重复。",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "json",
+                        "in": "formData",
+                        "description": "json 格式字符串，必填",
+                        "required": true,
+                        "type": "string",
+                        "default": "{\"uid\":1000,\"community\":{\"code\":\"社区编码\",\"name\":\"社区名称\",\"description\":\"更多社区描述\"}}"
+                    }
+                ]
+            }
+        },
+        "/communities/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "communities"
+                ],
+                "summary": "2.3 删除社区",
+                "description": "根据给定 id，删除指定的社区。",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "社区 id，必填",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 1
+                    }
+                ]
+            }
+        },
+        "/communities/{id}/update": {
+            "post": {
+                "tags": [
+                    "communities"
+                ],
+                "summary": "2.4 修改社区信息",
+                "description": "修改对应 id 的社区信息，包括社区名称和相关描述。",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "社区 id，必填",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 1
+                    },
+                    {                        
+                        "name": "json",
+                        "in": "formData",
+                        "description": "json 格式字符串，必填",
+                        "required": true,
+                        "type": "string",
+                        "default": "{\"uid\":1000,\"community\":{\"code\":\"社区编码\",\"name\":\"社区名称\",\"description\":\"更多社区描述\"}}"
+                    }
+                ]
+            }
+        },
+        
+        "/buildings/{id}": {
+            "get": {
+                "tags": [
+                    "buildings"
+                ],
+                "summary": "3.1 获取楼宇详细信息",
+                "description": "根据给定 id，获取指定楼宇详细信息。",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "楼宇 id，必填",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32",
+                        "default": 1
+                    }
+                ]
+            }
+        }
+        
+    }
+}
